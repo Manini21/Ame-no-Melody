@@ -1,0 +1,197 @@
+/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  transition: background-image 1s ease-in-out;
+  overflow: hidden;
+  position: relative; /* Required for ::before positioning */
+  background-color: #0a1e3f; /* dark blue base */
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.05;
+  animation: moveBackground 20s linear infinite;
+  z-index: 0;
+  pointer-events: none; /* allows clicks through */
+}
+
+@keyframes moveBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* Center the app box like Instagram login */
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;  /* full viewport height for vertical center */
+  padding: 2rem;
+  backdrop-filter: blur(4px);
+  position: relative;
+  z-index: 10; /* Above background */
+}
+
+#characterQuoteLeft,
+#characterQuoteRight {
+  color: black; /* or any color like #ffcc00, red, etc. */
+  font-weight: lighter;
+  font-size: 1rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+}
+
+
+/* The smaller box with blue translucent background */
+/*.weather-container {
+  background: rgba(10, 30, 63, 0.85); /* navy-blue translucent */
+  /*padding: 2rem 3rem;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 123, 255, 0.7); /* soft blue glow */
+ /* width: 350px; /* fixed width */
+ /* z-index: 10;
+} */
+.weather-container {
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  align-items: center; /* center horizontally */
+  gap: 1rem; /* space between input and button */
+  justify-content: center;
+  background: rgba(10, 30, 63, 0.85);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
+  z-index: 10;
+  width: 300px;
+}
+input[type="text"] {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  width: 70%;
+  margin-right: 0rem;
+  z-index: 20;
+  position: relative;
+}
+
+button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  background-color: #166ecd; /* bootstrap primary blue */
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 20;
+  position: relative;
+}
+
+#weatherInfo {
+  color: black;
+}
+
+
+button:hover {
+  background-color: #1a74e2;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Two character popups on left and right, talking style */
+
+.character-popup {
+  position: fixed;
+  bottom: 50px;
+  background: rgba(0, 70, 140, 0.85); /* deep blue translucent */
+  border: 2px solid #3399ff99; /* lighter blue border */
+  border-radius: 16px;
+  padding: 1rem;
+  max-width: 250px;
+  display: flex; /* visible flex container */
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 0.8s ease forwards;
+  color: #cce5ff;
+  font-style: italic;
+  font-size: 1rem;
+  z-index: 15;
+  box-shadow: 0 0 15px #3399ff88;
+}
+
+.character-popup img.hidden{
+  display: none;
+}
+
+.transparent-bg {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 1s ease-in-out;
+  backdrop-filter: blur(2px);
+}
+
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1; /* behind content */
+  pointer-events: none; /* clicks pass through */
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
+/* Left popup */
+#characterPopupLeft {
+  left: 30px;
+  text-align: left;
+}
+
+/* Right popup */
+#characterPopupRight {
+  right: 30px;
+  text-align: right;
+}
+
+.character-popup img {
+  width: 100px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

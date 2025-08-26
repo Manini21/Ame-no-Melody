@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ame no Melody</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background video (silent, autoplay, loop) -->
+  <video
+    id="videoBg"
+    muted
+    loop
+    playsinline
+    class="background-video"
+  >
+    <source src="" type="video/mp4" />
+    <!--Your browser does not support the video tag.-->
+  </video>
+
+  <div id="app">
+    <div class="weather-container">
+      <input type="text" id="cityInput" placeholder="Enter city name" />
+      <button onclick="searchWeather()">Get Weather</button>
+
+      <div id="weatherInfo" class="hidden">
+        <h2 id="location"></h2>
+        <p id="temperature"></p>
+        <p id="description"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left character popup -->
+  <div id="characterPopupLeft" class="character-popup hidden">
+    <img id = "characterImageLeft" src="assests/images/character-left.jpeg" alt="Character Left" />
+    <p id="characterQuoteLeft"></p>
+  </div>
+
+  <!-- Right character popup -->
+  <div id="characterPopupRight" class="character-popup hidden">
+    <img id = "characterImageRight" src="assests/images/character-right.jpeg" alt="Character Right" />
+    <p id="characterQuoteRight"></p>
+  </div>
+
+  <!-- Container for future background animation -->
+  <div id="backgroundAnimation"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
