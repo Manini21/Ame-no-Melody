@@ -26,7 +26,7 @@ git clone: [https://github.com/Manini21/Ame-no-Melody.git](https://github.com/Ma
 
 **2. Navigate to the project directory:**
 
-cd Ame-no-Melody
+```cd Ame-no-Melody```
 
 **3. Open the project:**
 
